@@ -1,0 +1,25 @@
+.main{
+    width: 920px;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.sub{
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;    
+    align-items: center;    
+    padding: 5px;
+    margin: 10px;
+}
+
+img{
+    width: 150px;
+    height: 150px;
+    margin: 5px;
+}
+.subtitle{
+    margin: 5px;
+}

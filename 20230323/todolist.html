@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <style>
+        li{
+            width: 800px;
+            height: 80px;
+            display: flex;
+        }
+
+        li > div{
+            width: 100px;
+            height: 80px;
+            border: 1px solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .todo{
+            width: 350px;
+        }
+    </style>
+</head>
+<body>
+    <label for="">시작 시간</label>
+    <input type="text">
+    <label for="">종료 시간</label>
+    <input type="text">
+    <label for="">할 일</label>
+    <input type="text">
+
+    <button onclick="addList()">리스트 추가</button>
+
+    <div id="_div">
+
+    </div>
+</body>
+<script>
+    window.localStorage.clear();
+
+    function addList(){
+        let inputs = document.querySelectorAll("input");
+        let value = window.localStorage.getItem("todolist");
+        
+        if(window.localStorage.length == 0 || window.localStorage.getItem("todolist") == ""){
+            window.localStorage.setItem("todolist", `{"start" : "${inputs[0].value}", "end" : "${inputs[1].value}", "todo" : "${inputs[2].value}"}`);
+        }else{
+            window.localStorage.setItem("todolist", value + "|" + `{"start" : "${inputs[0].value}", "end" : "${inputs[1].value}", "todo" : "${inputs[2].value}"}`);
+        }
+        console.log(window.localStorage.getItem("todolist"));
+        
+        render();
+    }
+
+    function render(){
+        let _json = window.localStorage.getItem("todolist");
+        _json = _json.split("|");
+
+        _div.innerHTML = "";
+        let _ul = document.createElement("ul");
+        let _li = document.createElement("li");
+        let _div1 = document.createElement("div");
+        let _div2 = document.createElement("div");
+        let _div3 = document.createElement("div");
+        let _div4 = document.createElement("div");
+        _div3.classList.add("todo");
+        _div1.innerHTML = "시작 시간";
+        _div2.innerHTML = "종료 시간";
+        _div3.innerHTML = "할 일";
+        _div4.innerHTML = "삭 제";
+        _li.append(_div1, _div2, _div3, _div4);
+        _ul.append(_li);
+        
+        if(_json[0] == ""){
+            return;
+        }
+
+        _json.forEach(function(i, index){
+            let _li = document.createElement("li");
+            let _div1 = document.createElement("div");
+            let _div2 = document.createElement("div");
+            let _div3 = document.createElement("div");
+            let _div4 = document.createElement("div");
+            let _btn = document.createElement("button");
+            _div3.classList.add("todo");
+            _btn.innerHTML = "X";
+            _div1.innerHTML = JSON.parse(i).start;
+            _div2.innerHTML = JSON.parse(i).end;
+            _div3.innerHTML = JSON.parse(i).todo;
+            _div4.append(_btn);
+
+            _btn.onclick = function(){
+                _json.splice(index, 1);
+                console.log(_json);                
+                window.localStorage.setItem("todolist", _json.join("|"));
+                
+                render();
+            }
+
+            _li.append(_div1, _div2, _div3, _div4);
+            _ul.append(_li);            
+        });
+        _div.append(_ul);
+    }
+
+    if(window.localStorage.length != 0 && window.localStorage.getItem("todolist") != ""){
+        render();
+    }
+</script>
+</html>

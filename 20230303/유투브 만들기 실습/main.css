@@ -1,0 +1,128 @@
+a{
+    text-decoration: none;
+    color: black;
+}
+
+a .sub-title{
+    color: gray;
+}
+
+.main{
+    /* 자식 태그의 내용만큼 너비를 갖게 한다. */
+    width: max-content;
+
+    display: flex;
+    flex-direction: column;
+    /* margin: auto 좌우 여백이 동일하게 맞춰진다. */
+    margin: auto;
+}
+
+.content{
+    width: max-content;
+    padding: 0;
+}
+
+.content li{
+    /* float 속성은 왼쪽 오른쪽으로 붙여서 정렬 시킬 수 있다. */
+    float: left;
+
+    /* ul li 태그를 사용하면서 리스트의 형식을 지정할 수 있다. */
+    list-style: none;
+}
+
+
+/* content 클래스를 가진 태그의 자식 li 태그의 자식 item-img 클래스를 가진 태그만 스타일을 준다. */
+/* content 클래스를 가진 태그 li 태그 안쪽으로 자식이면 스타일이 적용된다. */
+.content li .item .item-img{
+    width: 290px;
+    height: 164px;
+    border-radius: 10px;
+}
+
+
+/* 어떤 태그의 자식이든 item-img 클래스를 가지고 있는 태그에 스타일을 적용시킨다. */
+/* .item-img{
+
+} */
+
+.item{
+    position: relative;    
+    width: 290px;
+    height: 277px;
+    margin-right: 20px ;
+}
+
+/* 마지막 요소 선택자 last-child */
+/* 첫 번째 요소 선택자 first-child */
+.content li:last-child .item{
+    margin-right: 0px ;
+}
+
+
+
+.sub-tag{
+    position: absolute;
+    background-color: black;
+    color: white;
+    display: none;
+    width: 180px;
+    font-size: 12px;
+    text-align: center;
+    top: 145px;
+    left: 110px;
+}
+
+/* 가상 선택자 */
+/* hover 속성 마우스가 태그에 올려졌을 때 적용되는 스타일 */
+/* item 태그에 마우스가 올려졌을 때 자식 태그 중 
+    sub-tag 클래스를 가지고 있는 태그가 스타일이 적용된다. */
+.item:hover .sub-tag{
+    display: block;
+}
+
+.icon{
+    background-image: url(https://yt3.ggpht.com/B8wdyz7A0OYQ2l1uIf6-eHyGl4AK6RBpuUkl5bOyIvpjEWDLiJf9ALE9XjY3hQYaRsXI0xxxVHg=s68-c-k-c0x00ffffff-no-rj);
+    display: block;
+    width: 36px;
+    height: 36px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 66px;
+    left: 0;
+}
+
+.title{
+    width: 250px;
+    font-size: 14px;
+    margin-left: 50px;
+    margin-top: 5px;
+
+    /* 줄 바꿈 속성을 없애준다. 한 줄로 텍스트를 만들어 준다. */
+    white-space: nowrap;
+
+    /* 자식 태그가 부모 태그보다 크기가 크면 넘어가는 부분을 지워버림 */
+    overflow: hidden;
+
+    /* 텍스트가 부모 태그의 너비보다 넓으면 ...처리 */
+    text-overflow: ellipsis;
+}
+
+.sub-title{
+    font-size: 12px;
+    color: gray;
+    margin: -10px 0 0 50px;
+}
+
+/* 가상 선택자 */
+/* before, after 가상 요소를 추가해 줄 수 있다. */
+/* content 속성이 꼭 있어야 한다. */
+.sub-title span::before{
+    content: "•";
+}
+
+
+/* .sub-title span::after{
+    content: "•";
+} */

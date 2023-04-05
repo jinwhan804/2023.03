@@ -1,0 +1,65 @@
+.main{
+    width: 800px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.sub{
+    width: 750px;
+    height: 180px;
+    display: flex;
+    flex-direction: row;
+    margin: 25px;
+    padding: 10px;
+}
+
+.img1{
+    width: 150px;
+    height: 150px;
+    margin: 10px;
+}
+
+.texttotal{
+    width: 540px;
+    margin: 10px;
+}
+
+.titledate{
+    width: 540px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title{
+    width: 120px;    
+}
+
+.date{
+    width: 80px;
+    opacity: 0.5;
+}
+
+.script{
+    width: 540px;
+}
+
+.more{
+    width: 540px;    
+    display: flex;
+    align-items: center;  
+    justify-content: flex-end;
+}
+
+.moretext{
+    width: 80px;
+    font-size: 14px;
+}
+
+.img2{
+    width: 12px;
+    height: 12px;
+}

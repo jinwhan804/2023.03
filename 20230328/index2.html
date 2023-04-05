@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+    <style>
+        .board-content div{
+            width: auto;
+            min-width: 100px;
+            height: 30px;
+            border: 1px solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text">
+        <input type="text">
+        <button id="addBtn">등록</button>
+    </div>
+    <div class="board"></div>
+</body>
+<script>
+    // 보드의 내용을 담아놓을 배열
+    let boardArr = [];
+    let _index = 1;
+
+    // 보드의 내용을 만들어줄 생성자
+    // 매개변수 부분 중괄호 : 객체에서 구조분해 할당으로 값을 가져올 예정
+    // 객체에서 가져올 키값 작성
+    function createBoard({_name, _content, _id}){
+        this.name = _name;
+        this.content = _content;
+        this.id = _id;
+    }
+
+    function addBoard(){
+        // 배열 구조분해 할당 진행
+        let [input01, input02] = document.querySelectorAll("input");
+        let board = new createBoard({_name : input01.value, _content : input02.value, _id : _index});
+        _index++;
+        boardArr.push(board);
+        console.log(boardArr);
+        render();
+    }
+
+    function render(){
+        // 내용 초기화
+        document.querySelector(".board").innerHTML = "";
+        boardArr.forEach(function(i, a){
+            let div01 = document.createElement("div");
+            let div02 = document.createElement("div");
+            let div03 = document.createElement("div");
+            let div04 = document.createElement("div");
+            let button01 = document.createElement("button");
+            let button02 = document.createElement("button");
+            let [input01, input02] = document.querySelectorAll("input");
+            
+            button01.onclick = function(){
+                div01.remove();
+                boardArr.splice(a,1);
+                render()
+            }
+            button01.innerHTML = "삭제";
+
+            button02.onclick = function(){
+                div03.innerHTML = input02.value;
+                div04.innerHTML = input01.value;
+                console.log(boardArr[a]);  // 배열 수정 전 데이터
+                boardArr[a].name = input01.value;
+                boardArr[a].content = input02.value;
+                console.log(boardArr[a]);  // 배열 수정 후 데이터
+            }
+            button02.innerHTML = "수정";
+
+            let {name, content, id} = i;
+            div02.innerHTML = id;
+            div03.innerHTML = content;
+            div04.innerHTML = name;
+            div01.style.display = "flex";
+            div01.className = "board-content";
+            div01.append(div02, div03, div04, button01, button02);
+            document.querySelector(".board").append(div01);
+        })
+    }
+
+    // 수정 버튼 추가
+    addBtn.onclick = addBoard;
+</script>
+</html>

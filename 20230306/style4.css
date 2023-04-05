@@ -1,0 +1,72 @@
+.tab-menu > input{
+    display: none;
+}
+
+/* 인접한 형제 요소 선택자 + */
+/* tab-menu 클래스를 가지고 있는 태그의
+    자식 중 input 태그 바로 아래 붙은 태그 */
+.tab-menu > input + label{
+    display: inline-block;
+    padding: 30px;
+    background-color: gray;
+    color: white;
+    font-size: 14px;
+
+    /* 마우스를 올렸을 때 보여줄 커서를 설정할 수 있다. */
+    cursor: pointer;
+}
+
+/* checked 속성이 있는 input 태그 */
+/* tab-menu 클래스를 가지고 있는 태그 자식 input 태그가
+    checked 속성이 있으면 인접 형제 태그인 label에 스타일을 적용시킨다. */
+.tab-menu > input:checked + label{
+    background: #caf08e;
+    color: red;
+}
+
+.box{
+    width: 500px;
+    height: 600px;
+    background-color: #000;
+    margin: 0 auto;
+    display: none;
+}
+
+/* input 태그 중 클래스가 tab01이고 checked 속성이 있고 형제 요소 중 밑에 있는 태그 중에
+    item1 클래스를 가지고 있는 태그 */
+input[class="tab01"]:checked ~ .item1{
+    display: block;
+    color: white;
+}
+
+input[class="tab02"]:checked ~ .item2{
+    display: block;
+    color: white;
+}
+
+input[class="tab03"]:checked ~ .item3{
+    display: block;
+    color: white;
+}
+
+.textbox{
+    position: relative;
+}
+
+
+.textbox::before{
+    position: absolute;
+    top: 6px;
+    left: 180px;
+    content: "";
+    background-image: url(https://i.pinimg.com/736x/0a/39/66/0a39669d5783df4a52d68a5fa1db8c20.jpg);
+    width: 15px;
+    height: 15px;
+    background-size: 15px;
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.textbox input{
+    padding-right: 23px;
+}

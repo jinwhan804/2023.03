@@ -1,0 +1,205 @@
+.tab-menu{
+    width: 1300px;
+    position: relative;
+}
+
+.tab-menu > input{
+    display: none;
+}
+
+.tab-menu > input + label{
+    display: inline-block;
+    width: 250px;
+    height: 40px;
+    border: 1px solid black;
+    text-align: center;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.tab-menu > input:checked + label{
+    background-color: springgreen;
+    color: blue;
+}
+
+.searchbox{
+    position: absolute;
+    position: relative;    
+    top: 50px;
+    left: 1085px;
+    
+}
+
+.searchbox::before{
+    position: absolute;
+    top: 6px;
+    left: 180px;
+    content: "";
+    background-image: url(https://i.pinimg.com/736x/0a/39/66/0a39669d5783df4a52d68a5fa1db8c20.jpg);
+    width: 15px;
+    height: 15px;
+    background-size: 15px;
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.searchbox input{
+    padding-right: 23px;
+}
+
+.box{
+    position: absolute;
+    position: relative;
+    top: 120px;
+    width: 1280px;
+    height: 1650px;
+    display: none;
+
+    border: 1px solid black;
+}
+
+input[class="tab01"]:checked ~ .item1{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+input[class="tab02"]:checked ~ .item2{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+input[class="tab03"]:checked ~ .item3{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+input[class="tab04"]:checked ~ .item4{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+input[class="tab05"]:checked ~ .item5{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+img{
+    width: 230px;
+    height: 331px;
+}
+
+.movie{
+    width: 280px;
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    margin: 19px;
+}
+
+.shortstory{
+    display: none;
+    position: absolute;
+    width: 230px;
+    height: 331px;
+    background-color: black;
+    opacity: 0.8;
+    color: white;
+    
+}
+
+.poster:hover .shortstory{
+    display: block;
+}
+
+.shortstory p{
+    padding: 0 15px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+.movie .moviename{
+    background-image: url(https://img.megabox.co.kr/static/pc/images/common/txt/12_46x46.png);
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+    width: 200px;
+    height: 30px;
+    padding-left: 40px;
+    font-size: 20px;
+    margin-top: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movie .simpleinfo{
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+.simpleinfo span::before{
+    content: '|';
+    opacity: 0.2;    
+}
+
+.button-area{
+    position: absolute;
+    position: relative;
+    top: 10px;
+    display: flex;
+    align-items: center;
+    width: 240px;
+}
+
+.button{
+    position: absolute;
+    position: relative;
+    width: 70px;
+    height: 40px;
+    margin: 5px;
+    background-color: #503396;
+    border: none;
+    border-radius: 5px;
+
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: #351f67;
+    
+}
+
+.like{
+    width: 70px;
+    height: 40px;
+    margin: 5px;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid rgb(223, 223, 223);
+    border-radius: 5px;
+}
+
+.like:hover{
+    background-color: rgb(241, 241, 241);
+}
+
+.like img{
+    position: relative;
+    right: 15px;
+    width: 30px;
+    height: 30px;    
+}
+
+.book{
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.dolby{
+    background-image: url(https://www.megabox.co.kr/static/pc/images/common/btn/mov_list_db_btn.png);
+    background-repeat: no-repeat;
+    background-position: center;    
+}
